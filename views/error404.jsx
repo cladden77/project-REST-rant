@@ -4,7 +4,7 @@ const Def = require('./default')
 function error404 () {
     return (
       <Def>
-          <main class="text-center">
+          <main className="text-center">
               <h1>404: PAGE NOT FOUND</h1>
               <p>Oops, sorry, we can't find this page!</p>
               <div>
