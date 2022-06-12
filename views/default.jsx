@@ -10,7 +10,7 @@ function Def (html) {
                 <link rel="stylesheet" href="/css/style.css" />
             </head>
             <body>
-                <nav class="text-center">
+                <nav className="text-center">
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/places">Places</a></li>
