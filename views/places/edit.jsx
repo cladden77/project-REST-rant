@@ -6,7 +6,6 @@ function edit_form (data) {
         <Def>
           <main>
             <div className="row justify-content-center mt-5">
-              
                 <h1>Edit Place</h1>
                 </div>
                 <div className="row justify-content-center mt-5">
@@ -14,7 +13,7 @@ function edit_form (data) {
                 <form method="POST" action={`/places/${data.id}?_method=PUT`}>
                     <div className="form-group col-6 col-md-6 col-sm-6 m-auto">
                         <label htmlFor="name" required>Place Name</label>
-                        <input className="form-control" id="name" name="name" value={data.place.name} />
+                        <input className="form-control" id="name" name="name" defaultValue={data.place.name} required />
                     </div>
                     <div className="form-group col-6 col-md-6 col-sm-6 m-auto">
                         <label htmlFor="pic">Place Picture</label>
