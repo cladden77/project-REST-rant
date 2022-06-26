@@ -59,13 +59,15 @@ router.get('/:id', (req, res) => {
 //Single route
 router.put('/:id', (req, res) => {
   db.Place.findByIdAndUpdate(req.params.id, req.body)
-      .then(() => {
-          res.redirect(`/places/${req.params.id}`)
-      })
-      .catch(err => {
-          res.render('error404')
-      })
+  .then(() => {
+      res.redirect(`/places/${req.params.id}`)
+  })
+  .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+  })
 })
+
 
 // Edit Route
 router.get('/:id/edit', (req, res) => {
@@ -79,18 +81,15 @@ router.get('/:id/edit', (req, res) => {
 })
 
 //Delete Route
-router.delete('/places/:id', (req, res) => {
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
-    res.render('error404')
-  }
-  else if (!places[id]) {
-    res.render('error404')
-  }  
-  else {
-    places.splice(id, 1)
-    res.send('DELETE /places/:id stub')
-  }
+router.delete('/:id', (req, res) => {
+  db.Place.findByIdAndDelete(req.params.id)
+  .then(place => {
+      res.redirect('/places')
+  })
+  .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+  })
 })
 
 // Comment route
